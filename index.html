@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5b5cf0"><title>CU Nexus • Smart Campus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<section id="authView" class="auth-view">
+  <div class="auth-glow glow-a"></div><div class="auth-glow glow-b"></div>
+  <div class="auth-layout">
+    <div class="auth-hero">
+      <div class="nexus-mark">CU<span>N</span></div>
+      <div class="eyebrow">CHANDIGARH UNIVERSITY</div>
+      <h1>One smart campus.<br><span>Everywhere you need it.</span></h1>
+      <p>CU Nexus brings attendance, analytics, leave workflows and digital identity into one modern student platform.</p>
+      <div class="hero-pills"><span>● Live Attendance</span><span>✦ Smart Analytics</span><span>◈ Digital ID</span></div>
+    </div>
+    <div class="auth-card">
+      <div class="auth-card-head"><div><div class="mini-label">WELCOME BACK</div><h2>Sign in to CU Nexus</h2><p>Choose your campus role and continue.</p></div><div class="auth-icon"><i data-lucide="shield-check"></i></div></div>
+      <div class="role-pills">
+        <button class="role-pill active" data-role="student">Student</button><button class="role-pill" data-role="faculty">Faculty</button><button class="role-pill" data-role="hod">HOD</button><button class="role-pill" data-role="admin">Admin</button>
+      </div>
+      <form id="loginForm">
+        <label>Username / User ID<input id="loginId" autocomplete="username" required placeholder="e.g. student"></label>
+        <label>Password<div class="password-wrap"><input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Enter password"><button type="button" id="togglePass"><i data-lucide="eye"></i></button></div></label>
+        <div class="form-row"><label class="check"><input type="checkbox" id="remember"> Remember me</label><button type="button" class="link-btn" id="forgotBtn">Forgot password?</button></div>
+        <button class="primary wide" type="submit"><span>Continue to dashboard</span><i data-lucide="arrow-right"></i></button>
+      </form>
+      <div class="demo-login"><div><b>Demo access</b><span>Password: <code>1234</code></span></div><small>student · faculty · hod · admin</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="appView" hidden>
+<header class="topbar">
+  <div class="top-left"><button id="mobileMenu" class="icon-btn mobile-only" aria-label="Menu"><i data-lucide="menu"></i></button>
+    <div class="brand-lockup"><div class="nexus-logo">CU<span>N</span></div><div><b>CU Nexus</b><small>Smart Campus Platform</small></div></div>
+  </div>
+  <div class="top-search"><i data-lucide="search"></i><input id="globalSearch" placeholder="Search students, pages, reports..."><kbd>⌘ K</kbd></div>
+  <div class="top-actions">
+    <button class="icon-btn" id="themeToggle" title="Toggle theme"><i data-lucide="moon"></i></button>
+    <button class="icon-btn notif-btn" id="notifBtn" title="Notifications"><i data-lucide="bell"></i><span class="notif-dot"></span></button>
+    <div class="user-menu"><button id="userMenuBtn" class="user-chip"><span id="avatarTop" class="avatar-sm">AS</span><span class="user-chip-text"><b id="currentUser">User</b><small id="currentRole">Role</small></span><i data-lucide="chevron-down"></i></button><div id="userDropdown" class="dropdown hidden"><button id="profileQuick"><i data-lucide="id-card"></i> My profile</button><button id="logoutBtn"><i data-lucide="log-out"></i> Sign out</button></div></div>
+  </div>
+</header>
+<div id="mobileOverlay" class="mobile-overlay"></div>
+<div class="shell"><aside id="sidebar"></aside><main id="main"></main></div>
+</section>
+<script src="app.js"></script>
+</body></html>
